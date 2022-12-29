@@ -1,29 +1,20 @@
-# Testes automatizados com Cypress - Básico
+# Cypress-CAC-TAC
 
-👋 Seja bem-vindo(a)!
+Projeto de testes das funcionalidades da aplicação CAC-TAT.
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai adorar este curso. ❤️
+## Pre-requisitos
 
-## O que você vai aprender
+È necessario possuir Node.js e npm instalados para rodar seus testes.
 
-Durante o curso de testes automatizados com Cypress (básico), você vai aprender:
+> Eu usei a versão `v16.18.0` e `8.19.2` do Node.js e npm, respectively. Eu sugiro usar a versão mais recente..
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar _upload_ de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como executar os testes em um _pipeline_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
+## Instalação
 
-## Vamos começar?
+Run `npm install` (or `npm i` for the short version) to install the dev dependencies.
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
+## Teste
+>
+Run `npm test` (or `npm t` for the short version) para rodar o teste em modo rapido.
 
-___
+Or, run `npm run cy:open` para rodar o Cypress e interagir com o mesmo.
 
-Este é mais um curso da [**Escola Talking About Testing**](https://udemy.com/user/walmyr).

@@ -13,6 +13,8 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('Preenche os campos obrigatórios e envia o formulário', function() {
       //(cy.get)= busca um elemento css na pagina do navegador
       //(cy.type)= digita um texto
+      //(cy.clock)= Paraliza o tempo do navegador
+      cy.clock()
       cy.get('#firstName').type('Rodrigo')
       cy.get('#lastName').type('Barbosa')
       cy.get('#email').type('rodrigo@exemplo.com')
@@ -21,6 +23,10 @@ describe('Central de Atendimento ao Cliente TAT', function() {
       cy.contains('button', 'Enviar').click()
       //(be.visible)=verifica se o elemento se encontra visivel na aplicação 
       cy.get('.success').should('be.visible')
+      //(cy.tick)= adianta o tempo no navegador em milisegundos.ex=3000 mili são 3 segundos.
+      cy.tick(3000)
+      cy.get('.success').should('not.be.visible')
+
     })
     it('Email com formatação inválida', function() {
       cy.get('#firstName').type('Rodrigo')
@@ -86,6 +92,17 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     it('Seleciona um arquivo da pasta fixtures', function() {
       //(.selectFile) adiciona um arquivo a aplicação
       cy.get('#file-upload').should('not.have.value').selectFile('./cypress/fixtures/example.json')
+    })
+    it('Faz uma requisição HTTP', function() {
+      cy.request('https://cac-tat.s3.eu-central-1.amazonaws.com/index.html')
+        .should(function(res) {
+          const {status, statusText, body} = res
+          expect(status).to.equal(200)
+          expect(statusText).to.equal('OK')
+          expect(body).to.include('CAC TAT')
+        }) 
+
+        
     })
     
   })
